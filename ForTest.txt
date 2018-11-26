@@ -1,3 +1,5 @@
 This is a test file.
 -----------------------
 2.12 Test the SublimeGit.
+-----------------------
+11.26 Test the <a href=...>
