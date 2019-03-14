@@ -1,0 +1,13 @@
+{
+"companyName": "DefaultCompany",
+"productName": "TouhouUnity",
+"dataUrl": "H5Bulid.data.unityweb",
+"wasmCodeUrl": "H5Bulid.wasm.code.unityweb",
+"wasmFrameworkUrl": "H5Bulid.wasm.framework.unityweb",
+"TOTAL_MEMORY": 268435456,
+"graphicsAPI": ["WebGL 2.0", "WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#231F20",
+"cacheControl": {"default": "must-revalidate"}
+}
