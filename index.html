@@ -7,11 +7,16 @@
 
 	<script type="text/javascript">
 		function drawDiv(){
+			var ifr = document.getElementById("frame");
 			var con = document.getElementById("content");
-			con.innerHTML = `<iframe id="md" frameborder=0 scrolling=no src="README.md"></iframe>`;
+			ifr.innerHTML = `<iframe id="md" frameborder=0 scrolling=no src="README.md"></iframe>`;
+			// console.log(ifr.innerHTML);
 			var mdSrc = document.getElementById("md");
-			// console.log(mdSrc);
-			
+			mdSrc.style.display="none";
+			mdSrc.onload=function(){
+				// console.log(mdSrc.getElementsByTagName("pre")[0]);
+				con.innerHTML = marked(mdSrc.contentDocument.getElementsByTagName("pre")[0].innerHTML)
+			}
 			// console.log("Fuck");
 		}
 	</script>
@@ -29,7 +34,7 @@
 	<!-- Aticle Line listing article -->
 	<hr>
 	<h1>Article List</h1>
-	<li><a href="README.html">ReadMe</a></li>
+	<li><a href="README.html">ReadMe --new tag</a></li>
 	<button onclick="drawDiv()">ReadMe</button>
 	<!-- <p onclick="click()">safdsafsa<p> -->
 	<li><a href="Article/FirstGitPageArticle.md">First Article</a></li>
@@ -37,6 +42,7 @@
 	<li><a href="Game/Touhou_H5Bulid/index.html">Touhou Game Play (ver. 0.1)</a></li>
 	<hr>
 
-	<div id="content" onclick="click()">Test Div</div>
+	<div id="frame">IFrame</div>
+	<div id="content">Test Div</div>
 </body>
 </html>
