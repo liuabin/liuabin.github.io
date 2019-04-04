@@ -6,16 +6,19 @@
 	<title>刘阿宾的个人主页</title>
 
 	<script type="text/javascript">
-		function drawDiv(){
+		function drawDiv(filename){
 			var ifr = document.getElementById("frame");
 			var con = document.getElementById("content");
-			ifr.innerHTML = `<iframe id="md" frameborder=0 scrolling=no src="README.md"></iframe>`;
+			ifr.innerHTML = `<iframe id="md" frameborder=0 scrolling=no src="` + filename + `"></iframe>`;
 			// console.log(ifr.innerHTML);
 			var mdSrc = document.getElementById("md");
 			mdSrc.style.display="none";
 			mdSrc.onload=function(){
 				// console.log(mdSrc.getElementsByTagName("pre")[0]);
 				con.innerHTML = marked(mdSrc.contentDocument.getElementsByTagName("pre")[0].innerHTML)
+				// ifr.innerHTML = marked(mdSrc.contentDocument.getElementsByTagName("pre")[0].innerHTML);
+				// console.log(mdSrc.width);
+				con.style.width = "61.8%";
 			}
 			// console.log("Fuck");
 		}
@@ -25,24 +28,26 @@
 	<h1><font color = 66CCFF>Liu Abin's Personal Website.</font></h1>
 	<hr>
 	<p>test block</p>
-	<h2>Just build for having a personal domain name</h2>
-	<h3>In order to name the packages of Java.</h3>
+	<h3>Just build for having a personal domain name</h3>
+	<h4>In order to name the packages of Java.</h4>
 	<img src="Image/我v2.0.jpg" width="128" height="128">
 	<!-- <p>Maybe build it as a blog in the future hhhhhhhhhhh.</p> -->
 	<a href="ForTest.txt">click here 4 test</a>
 
 	<!-- Aticle Line listing article -->
 	<hr>
-	<h1>Article List</h1>
+	<h2>Article List</h2>
 	<li><a href="README.html">ReadMe --new tag</a></li>
-	<button onclick="drawDiv()">ReadMe</button>
+		<button onclick="drawDiv('README.md')">ReadMe</button>
 	<!-- <p onclick="click()">safdsafsa<p> -->
-	<li><a href="Article/FirstGitPageArticle.md">First Article</a></li>
+	<li><a href="Article/FirstGitPageArticle.md">First Article --new tag, no rendered</a></li>
+		<li onclick="drawDiv('Article/FirstGitPageArticle.md')">First Article --original click</li>
+		<button onclick="drawDiv('Article/FirstGitPageArticle.md')">First Article</button>
 	<li><a href="Game/ShaderLearn/index.html">Test WebGL in Egret</a></li>
 	<li><a href="Game/Touhou_H5Bulid/index.html">Touhou Game Play (ver. 0.1)</a></li>
 	<hr>
 
-	<div id="frame">IFrame</div>
-	<div id="content">Test Div</div>
+	<div id="frame">IFrame Block Div</div>
+	<div id="content">Show Aticle here Div</div>
 </body>
 </html>
