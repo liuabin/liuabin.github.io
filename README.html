@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="lib/marked.min.js"></script>
+	<title>README.md</title>
+</head>
+<body>
+	<div id="content"></div>
+	<iframe id="md" frameborder=0 scrolling=no src="README.md"></iframe>
+	<script type="text/javascript">
+		var mdFile = document.getElementById("md");
+		mdFile.onload = function(){
+			// mdFile.width = 0;
+			// mdFile.height = 0;
+			mdFile.style.display = "none";
+			var dom = mdFile.contentDocument;
+			// console.log(dom.getElementsByTagName("pre")[0].innerHTML);
+			var string = dom.getElementsByTagName("pre")[0].innerHTML;
+			document.getElementById("content").innerHTML = marked(string);
+		}
+
+	</script>
+</body>
+</html>
